@@ -58,6 +58,12 @@ exports.createSubscription = async (req, res) => {
       plan_id,
       customer_notify: 1,
       total_count: 12,
+      notes: { userId },
+      customer: {
+        name: userName,
+        email: userEmail,
+        contact: userPhone,
+      }
     });
 
     const userId = req.user?.id || req.user?._id || null;
@@ -120,7 +126,7 @@ exports.verifySubscriptionPayment = async (req, res) => {
 
     const { subject, html, text } = subscriptionActivatedEmail({
       email: user.email,
-      planName: 'Premium Monthly', 
+      planName: 'Premium Monthly',
     });
     sendEmail({ to: user.email, subject, html, text })
       .catch(e => console.error('sendEmail error:', e?.message || e));
