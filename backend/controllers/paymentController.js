@@ -51,7 +51,7 @@ exports.createPlan = async (req, res) => {
 // 2️⃣ Create Subscription
 exports.createSubscription = async (req, res) => {
   try {
-    const { plan_id } = req.body;
+    const { plan_id, name, email, phone } = req.body;
     if (!plan_id) return res.status(400).json({ msg: "plan_id is required" });
 
     const subscription = await razorpay.subscriptions.create({
@@ -60,9 +60,9 @@ exports.createSubscription = async (req, res) => {
       total_count: 12,
       notes: { userId },
       customer: {
-        name: userName,
-        email: userEmail,
-        contact: userPhone,
+        name: name || "Test User",
+        email: email || "test@example.com",
+        contact: phone || "9999999999",
       }
     });
 
