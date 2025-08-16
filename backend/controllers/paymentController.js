@@ -51,23 +51,18 @@ exports.createPlan = async (req, res) => {
 // 2️⃣ Create Subscription
 exports.createSubscription = async (req, res) => {
   try {
-    const { plan_id, name, email, phone } = req.body;
+    const { plan_id } = req.body;
     if (!plan_id) return res.status(400).json({ msg: "plan_id is required" });
 
     const userId = req.user?.id || req.user?._id || null;
 
+    // ✅ Only allowed fields
     const subscription = await razorpay.subscriptions.create({
       plan_id,
       customer_notify: 1,
       total_count: 12,
       notes: { userId },
-      customer: {
-        name: name || "Test User",
-        email: email || "test@example.com",
-        contact: phone || "9999999999",
-      }
     });
-
 
     // 👇 upsert instead of create to avoid duplicates on retries
     await Payment.findOneAndUpdate(
