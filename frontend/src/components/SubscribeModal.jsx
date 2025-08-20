@@ -101,7 +101,7 @@ export default function SubscribeModal({ open, onClose }) {
         <div className="mt-4 mb-6 flex items-center gap-3 text-xs text-neutral-400">
           <StepDot active={step >= 1} label="Email"/>
           <div className="h-px flex-1 bg-black/10" />
-          <StepDot active={step >= 2} label="Password" />
+          <StepDot active={step >= 2} label="Create Password" />
           <div className="h-px flex-1 bg-black/10" />
           <StepDot active={false} label="Checkout" />
         </div>

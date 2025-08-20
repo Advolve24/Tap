@@ -60,7 +60,7 @@ exports.createSubscription = async (req, res) => {
     const subscription = await razorpay.subscriptions.create({
       plan_id,
       customer_notify: 1,
-      total_count: 12,
+      total_count: 1,
       notes: { userId },
     });
 
