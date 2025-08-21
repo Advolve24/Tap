@@ -6,8 +6,7 @@ export default function Footer() {
     <footer className="flex flex-col md:flex-row justify-between items-center p-4 text-sm text-white bg-[#960000]">
       {/* Left Section */}
       <div className="text-center md:text-left mb-2 md:mb-0">
-        © {new Date().getFullYear()} TAP (The Amazing Pint). All rights reserved.
-        <br />
+        © {new Date().getFullYear()} TAP. All rights reserved.
         Managed & Powered by{" "}
         <a
           href="https://advolve.in"
