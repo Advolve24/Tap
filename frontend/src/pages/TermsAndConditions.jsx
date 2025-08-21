@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 const TermsAndConditions = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50">
       <div className="w-[100%] h-24 bg-[#960000] mb-8 flex justify-center items-center">
         <Link to="/">
          <img className="w-[100px]" src="/Taplogo.png" />
         </Link>
       </div>
-      <div className="max-w-4xl mx-auto w-[95%] bg-white shadow-lg rounded-2xl p-8 sm:p-12">
+      <div className="max-w-4xl mx-auto w-[95%] mb-8 bg-white shadow-lg rounded-2xl p-8 sm:p-12">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Terms & Conditions — <span className="text-[#ffe101]">TAP</span> (The Amazing Pint)
         </h1>
