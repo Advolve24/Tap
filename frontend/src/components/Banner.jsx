@@ -12,11 +12,11 @@ export default function Banner({ onSubscribe }) {
       <img
         src="/Mobiletapbanner.webp"
         alt="Craft culture banner mobile"
-        className="block md:hidden h-[95vh] w-full object-fit center-center"
+        className="block md:hidden h-[100vh] w-full object-fit center-center"
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-900/20 to-transparent" />
-      <div className="absolute bottom-[10%] right-[25%] md:bottom-[12%] md:right-[10%] flex items-center justify-center text-center text-white">
+      <div className="absolute bottom-[11.5%] right-[25%] md:bottom-[15%] md:right-[10%] flex items-center justify-center text-center text-white">
         <img
           src="/subscribenow.png"
           alt="Subscribe Now"
