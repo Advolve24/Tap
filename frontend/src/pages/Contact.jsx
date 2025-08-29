@@ -111,9 +111,8 @@ const Contact = () => {
         <div className="mt-10">
           <h2 className="text-xl font-semibold text-gray-900 mb-3">Other Ways to Reach Us</h2>
           <ul className="space-y-2 text-gray-700">
-            <li>📧 Email: <a href="mailto:web@advolve.in" className="text-[#960000] font-medium">web@advolve.in</a></li>
-            <li>📞 Phone/WhatsApp: +91-9876543210 (Mon–Sat, 10:00 AM – 6:00 PM IST)</li>
-            <li>📍 Address: [Insert Registered Business Address]</li>
+            <li>📧 Email: <a href="mailto:theamazingpint@gmail.com" className="text-[#960000] font-medium">theamazingpint@gmail.com</a></li>
+            <li>📞 Phone/WhatsApp: +91-9156236277</li>
           </ul>
         </div>
       </div>

@@ -15,13 +15,13 @@ export default function Banner({ onSubscribe }) {
         className="block md:hidden h-[100vh] w-full object-fit center-center"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-900/20 to-transparent" />
-      <div className="absolute bottom-[11.5%] right-[25%] md:bottom-[15%] md:right-[10%] flex items-center justify-center text-center text-white">
+      <div className="absolute" />
+      <div className="absolute bottom-[11.5%] right-[25%] md:bottom-[15%] md:right-[10%] flex justify-end text-white">
         <img
           src="/subscribenow.png"
           alt="Subscribe Now"
           onClick={onSubscribe}
-          className="hidden md:block cursor-pointer w-[600px] h-auto"
+          className="hidden md:block cursor-pointer w-[50%] h-auto"
         />
         <img
           src="/Mobilesubscribebtn.png"
