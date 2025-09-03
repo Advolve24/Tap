@@ -18,9 +18,6 @@ exports.signup = async (req, res) => {
     const rawEmail = (req.body?.email ?? '');
     const password = req.body?.password ?? '';
 
-    // DEBUG (remove after debugging)
-    // console.log('signup body:', req.headers['content-type'], req.body);
-
     const email = rawEmail.trim().toLowerCase();
     if (!email) return res.status(400).json({ msg: 'Email required' });
     if (!password) return res.status(400).json({ msg: 'Password required' });
@@ -41,7 +38,6 @@ exports.signup = async (req, res) => {
 
     res.json({ user: { id: user._id, email: user.email }, token });
   } catch (err) {
-    // If unique index caught a race condition, surface a friendly error
     if (err?.code === 11000 && err?.keyPattern?.email) {
       return res.status(400).json({ msg: 'Email already registered' });
     }
@@ -65,8 +61,8 @@ exports.login = async (req, res) => {
     sendEmail({ to: user.email, subject: 'Logged in', text: 'You have logged in successfully' })
       .catch((e) => console.error('sendEmail error:', e?.message || e));
 
-    const token = jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '7d' });
-    res.json({ user: { id: user._id, email: user.email, isSubscribed: user.isSubscribed }, token });
+    const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' });
+    res.json({ user: { id: user._id, email: user.email, isSubscribed: user.isSubscribed, role: user.role }, token });
   } catch (err) {
     console.error('Login error:', err);
     return res.status(500).json({ msg: 'Server error' });
@@ -75,5 +71,5 @@ exports.login = async (req, res) => {
 
 exports.me = async (req, res) => {
   const user = await User.findById(req.user.id).select('-passwordHash');
-  res.json(user);
+  res.json(user); 
 };

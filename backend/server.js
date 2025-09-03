@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const connectDB = require('./config/db');
+const adminRoutes = require('./routes/adminRoutes');
 
 connectDB();
 
@@ -12,7 +13,7 @@ const app = express();
 
 // --- CORS FIRST ---
 const allowed = [
-  process.env.CLIENT_URL,          // e.g. http://localhost:5173
+  process.env.CLIENT_URL,          
   'http://localhost:5173',
   'http://192.168.1.17/:5173',
 ].filter(Boolean);
@@ -31,7 +32,8 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 200 }));
 
 // --- routes ---
 app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/payments', require('./routes/paymentRoutes'));  // << PLURAL (match frontend)
+app.use('/api/payments', require('./routes/paymentRoutes'));  
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (_req, res) => res.send('E-Magazine API running'));
 

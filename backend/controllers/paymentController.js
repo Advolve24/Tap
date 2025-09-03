@@ -56,6 +56,8 @@ exports.createSubscription = async (req, res) => {
 
     const userId = req.user?.id || req.user?._id || null;
 
+ 
+
     // ✅ Only allowed fields
     const subscription = await razorpay.subscriptions.create({
       plan_id,
